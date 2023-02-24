@@ -1,6 +1,7 @@
 package bmicalc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -140,5 +141,37 @@ private BMICalcImpl calc = new BMICalcImpl();
 		String expectedMessage = "Gender must be M(male) or F(female)";
 	    String actualMessage = exception.getMessage();
 	    assertTrue(actualMessage.contains(expectedMessage));
+	}
+	
+	@Test
+	public void abdominalObesityFalseMale() {
+		double waistCircunference = 70;
+		char gender = 'M';
+		
+		assertFalse(calc.abdominalObesity(waistCircunference, gender));
+	}
+	
+	@Test
+	public void abdominalObesityTrueMale() {
+		double waistCircunference = 100;
+		char gender = 'M';
+		
+		assertTrue(calc.abdominalObesity(waistCircunference, gender));
+	}
+	
+	@Test
+	public void abdominalObesityFalseFemale() {
+		double waistCircunference = 70;
+		char gender = 'F';
+		
+		assertFalse(calc.abdominalObesity(waistCircunference, gender));
+	}
+	
+	@Test
+	public void abdominalObesityTrueFemale() {
+		double waistCircunference = 100;
+		char gender = 'F';
+		
+		assertTrue(calc.abdominalObesity(waistCircunference, gender));
 	}
 }
