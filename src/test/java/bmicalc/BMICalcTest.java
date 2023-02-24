@@ -80,4 +80,32 @@ private BMICalcImpl calc = new BMICalcImpl();
 	    String actualMessage = exception.getMessage();
 	    assertTrue(actualMessage.contains(expectedMessage));
 	}
+	
+	@Test
+	public void categoryUnderweight() {
+		double bmi = 17;
+		
+		assertEquals("Underweight", calc.category(bmi));
+	}
+	
+	@Test
+	public void categoryNormal() {
+		double bmi = 20;
+		
+		assertEquals("Normal", calc.category(bmi));
+	}
+	
+	@Test
+	public void categoryOverweight() {
+		double bmi = 27;
+		
+		assertEquals("Overweight", calc.category(bmi));
+	}
+	
+	@Test
+	public void categoryObese() {
+		double bmi = 30;
+		
+		assertEquals("Obese", calc.category(bmi));
+	}
 }
