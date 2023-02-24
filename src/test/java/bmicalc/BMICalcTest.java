@@ -130,4 +130,15 @@ private BMICalcImpl calc = new BMICalcImpl();
 	    String actualMessage = exception.getMessage();
 	    assertTrue(actualMessage.contains(expectedMessage));
 	}
+	
+	@Test
+	public void abdominalObesityWrongGender() {
+		double waistCircunference = 70;
+		char gender = 'J';
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.abdominalObesity(waistCircunference, gender));
+		String expectedMessage = "Gender must be M(male) or F(female)";
+	    String actualMessage = exception.getMessage();
+	    assertTrue(actualMessage.contains(expectedMessage));
+	}
 }
