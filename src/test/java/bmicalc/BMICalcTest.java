@@ -70,4 +70,14 @@ private BMICalcImpl calc = new BMICalcImpl();
 	    String actualMessage = exception.getMessage();
 	    assertTrue(actualMessage.contains(expectedMessage));
 	}
+	
+	@Test
+	public void categoryBMI0() {
+		double bmi = 0;
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.category(bmi));
+		String expectedMessage = "BMI must be higher than 0";
+	    String actualMessage = exception.getMessage();
+	    assertTrue(actualMessage.contains(expectedMessage));
+	}
 }
