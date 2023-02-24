@@ -37,4 +37,16 @@ private BMICalcImpl calc = new BMICalcImpl();
 	    String actualMessage = exception.getMessage();
 	    assertTrue(actualMessage.contains(expectedMessage));
 	}
+	
+	@Test
+	public void bmi0MassHeight() {
+		double mass = 0;
+		double height = 0;
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.bmi(mass, height));
+		String expectedMessage = "Mass and height must be higher than 0";
+	    String actualMessage = exception.getMessage();
+	    assertTrue(actualMessage.contains(expectedMessage));
+	}
+	
 }
