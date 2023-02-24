@@ -108,4 +108,26 @@ private BMICalcImpl calc = new BMICalcImpl();
 		
 		assertEquals("Obese", calc.category(bmi));
 	}
+	
+	@Test
+	public void abdominalObesityMinWaist() {
+		double waistCircunference = 35;
+		char gender = 'F';
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.abdominalObesity(waistCircunference, gender));
+		String expectedMessage = "Waist circumference must be higher than 40 centimeters";
+	    String actualMessage = exception.getMessage();
+	    assertTrue(actualMessage.contains(expectedMessage));
+	}
+	
+	@Test
+	public void abdominalObesityMaxWaist() {
+		double waistCircunference = 330;
+		char gender = 'F';
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.abdominalObesity(waistCircunference, gender));
+		String expectedMessage = "Waist circumference must be lower than 325 centimeters";
+	    String actualMessage = exception.getMessage();
+	    assertTrue(actualMessage.contains(expectedMessage));
+	}
 }
