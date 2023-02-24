@@ -6,10 +6,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class BMICalcTest {
+private BMICalcImpl calc = new BMICalcImpl();
 	
 	@Test
-	@DisplayName("Example Test Method.")
-	public void bmi() {
-		assertEquals(true, true);
+	public void bmiNormal() {
+		double mass = 50;
+		double height = 1.70;
+		assertEquals(17.30, (double)Math.round(calc.bmi(mass, height)*100)/100);
 	}
 }
