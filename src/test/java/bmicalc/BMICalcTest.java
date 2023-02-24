@@ -49,4 +49,25 @@ private BMICalcImpl calc = new BMICalcImpl();
 	    assertTrue(actualMessage.contains(expectedMessage));
 	}
 	
+	@Test
+	public void bmiMaxMassHeight() {
+		double mass = 641;
+		double height = 1.80;
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.bmi(mass, height));
+		String expectedMessage = "Mass must be lower than 640";
+	    String actualMessage = exception.getMessage();
+	    assertTrue(actualMessage.contains(expectedMessage));
+	}
+	
+	@Test
+	public void bmiMaxHeight() {
+		double mass = 58;
+		double height = 276;
+		
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.bmi(mass, height));
+		String expectedMessage = "Height must be lower than 275";
+	    String actualMessage = exception.getMessage();
+	    assertTrue(actualMessage.contains(expectedMessage));
+	}
 }
