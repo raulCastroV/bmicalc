@@ -30,3 +30,21 @@ Abdominal Obesitiy Method:
 5.Cuando la medida de cintura introducida corresponde con obesidad abdominal y el genero es masculino: abdominalObesityTrueMale()
 6.Cuando la medida de cintura introducida no corresponde con obesidad abdominal y el genero es femenino: abdominalObesityFalseFemale()
 7.Cuando la medida de cintura introducida corresponde con obesidad abdominal y el genero es femenino: abdominalObesityTrueFemale()
+
+# Use Case:
+
+USE CASE 1: BMI ESTIMATION
+Primary Actor: User
+Level: User goal
+Stakeholders and Interests:
+User - wants to know its BMI
+Precondition: User introduces its mass and height
+Success guarantees: User introduces its parameters and app show the BMI and category.
+Main succes scenario:
+1. User select BMI and introduce its mass and height.
+2. App calculates BMI.
+3. App assign a category.
+4. App shows results.
+Extensions:
+1a. Submitted mass is equal or lower than zero.
+1a1. Submitted height is equal or lower than zero.
