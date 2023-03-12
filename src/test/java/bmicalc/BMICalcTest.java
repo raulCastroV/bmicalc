@@ -64,7 +64,7 @@ private BMICalcImpl calc = new BMICalcImpl();
 	@Test
 	public void bmiMaxHeight() {
 		double mass = 58;
-		double height = 276;
+		double height = 2.76;
 		
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> calc.bmi(mass, height));
 		String expectedMessage = "Height must be lower than 275";
