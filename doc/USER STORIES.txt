@@ -4,28 +4,28 @@ I want to know my BMI category
 So that I can be aware of my health condition.
 
 	- Scenario: BMI value equal to 0
-		Given BMI value of 0
-		When the user wants to know its category
+		Given a category sorter
+		When s introduced a BMI value of 0
 		Then throw error message
 
 	- Scenario: BMI value equal to 17
-		Given BMI value of 17
-		When the user wants to know its category
+		Given a category sorter
+		When is introduced a BMI value of 17
 		Then return "Underweight"
 
 	- Scenario: BMI value equal to 20
-		Given BMI value of 20 
-		When the user wants to know its category
+		Given a category sorter
+		When is introduced a BMI value of 20
 		Then return "Normal"
 
 	- Scenario: BMI value equal to 27
-		Given BMI value of 27 
-		When the user wants to know its category
+		Given a category sorter
+		When is introduced a BMI value of 27 
 		Then return "Overweight"
 
 	- Scenario: BMI value equal to 30
-		Given BMI value of 30
-		When the user wants to know its category
+		Given a category sorter
+		When is introduced a BMI value of 30
 		Then return "Obese"
 
 USER STORY 2: 
@@ -70,45 +70,39 @@ I want to know if I have abdominal obesity
 So that I can change my lifestyle.
 
 	- Scenario: Waist circumference lower than 40 cm
-		Given waist circumference of 35 cm
-		And gender value of 'F'
-		When the user wants to know if it has abdominal obesity
+		Given an abdominal obesity calculator
+		When I introduce a waist circumference of 35 and a gender value of 'F'
 		Then throw error message
 
 	- Scenario: Waist circumference higher than 325 cm
 		Given waist circumference of 330 cm
 		And gender value of 'F'
-		When the user wants to know if it has abdominal obesity
+		When I introduce a waist circumference of 330 and a gender value of 'F'
 		Then throw error message
 
 	- Scenario: Incorrect gender
-		Given gender value of 'J'
-		And waist circumference of 70
-		When the user wants to know if it has abdominal obesity
+		Given an abdominal obesity calculator
+		When I introduce a waist circumference of 70 and a gender value of 'J'
 		Then throw error message
 
 	- Scenario: Male gender and waist circumference lower than 90
-		Given gender value of 'M'
-		And waist circumference of 70
-		When the user wants to know if it has abdominal obesity
+		Given an abdominal obesity calculator
+		When I introduce a waist circumference of 70 and a gender value of 'M'
 		Then return false
 
 	- Scenario: Male gender and waist circumference higher than 90
-		Given gender value of 'M'
-		And waist circumference of 100
-		When the user wants to know if it has abdominal obesity
+		Given an abdominal obesity calculator
+		When I introduce a waist circumference of 100 and a gender value of 'M'
 		Then return true
 
 	- Scenario: Female gender and waist circumference lower than 80
-		Given gender value of 'F'
-		And waist circumference of 70
-		When the user wants to know if it has abdominal obesity
+		Given an abdominal obesity calculator
+		When I introduce a waist circumference of 70 and a gender value of 'F'
 		Then return false
 
 	- Scenario: Female gender and waist circumference higher than 80
-		Given gender value of 'F'
-		And waist circumference hof 100
-		When the user wants to know if it has abdominal obesity
+		Given an abdominal obesity calculator
+		When I introduce a waist circumference of 100 and a gender value of 'F'
 		Then return true
 
 USER STORY 4:
@@ -117,16 +111,16 @@ I want to know what is my ideal weight
 So that I can go for it.
 
 	- Scenario: Height value lower or equal to zero
-		Given height value of -1.5
-		When the user wants to know its ideal weight
+		Given an ideal weight calculator
+		When I introduce a height value of -1.5
 		Then throw error message
 
 	- Scenario: Height value higher than 2.75 m
-		Given a height value of 2.90
-		When the user wants to know its ideal weight
+		Given an ideal weight calculator
+		When I introduce a height value of 2.90
 		Then throw error message
 
 	- Scenario: Valid height value
-		Given height value of 1.7
-		When the user wants to know its ideal weight
-		Then return its ideal weight
+		Given an ideal weight calculator
+		When I introduce a height value of 1.7
+		Then return 65.0
