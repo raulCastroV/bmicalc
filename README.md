@@ -1,9 +1,9 @@
 ![example workflow](https://github.com/jmhorcas/bmicalc/actions/workflows/maven.yml/badge.svg)
 
-![](https://github.com/raulCastroV/bmicalc/blob/main/doc/BocetoGUI.pdf)
-
-
 ![](https://github.com/raulCastroV/bmicalc/blob/main/doc/BocetoGUI.png)
+
+
+![](https://github.com/raulCastroV/bmicalc/blob/main/doc/interfaz.png)
 
 
 ![](https://github.com/raulCastroV/bmicalc/blob/main/doc/Model.jpg)
