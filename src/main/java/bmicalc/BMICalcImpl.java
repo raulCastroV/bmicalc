@@ -8,7 +8,7 @@ public class BMICalcImpl implements BMICalc {
 		if (mass>640)
 			throw new IllegalArgumentException("Mass must be lower than 640");
 		if (height>2.75)
-			throw new IllegalArgumentException("Height must be lower than 275");
+			throw new IllegalArgumentException("Height must be lower than 2.75");
 		
 		double bmi = (mass/(height*height));
 		
