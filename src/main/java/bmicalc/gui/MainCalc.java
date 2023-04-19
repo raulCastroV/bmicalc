@@ -12,7 +12,7 @@ public class MainCalc {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BMICalcImpl modelo = new BMICalcImpl();
+					BMICalcImpl modelo = BMICalcImpl.getInstance();
 					Vista vista = new Vista();
 					Controlador controlador = new Controlador(modelo, vista);
 					vista.registrarControlador(controlador);

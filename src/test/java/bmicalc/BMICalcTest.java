@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class BMICalcTest {
-private BMICalcImpl calc = new BMICalcImpl();
+private BMICalcImpl calc = BMICalcImpl.getInstance();
 	
 	@Test
 	public void bmiNormal() {

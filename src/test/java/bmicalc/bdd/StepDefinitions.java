@@ -23,7 +23,7 @@ public class StepDefinitions {
 	
 	@Given("I have a bmi calculator")
 	public void i_have_a_bmi_calculator() {
-	    calculator = new BMICalcImpl();
+	    calculator = BMICalcImpl.getInstance();
 	}
 
 	@When("I introduce a mass value of {double} and a height value of {double}")
