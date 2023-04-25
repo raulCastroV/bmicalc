@@ -8,4 +8,6 @@ public interface IMCHospital {
 	
 	public boolean tieneObesidadAbdominal(char genero, double circunferencia);
 	
+	public String mensaje(double altura, double peso, double imc);
+	
 }

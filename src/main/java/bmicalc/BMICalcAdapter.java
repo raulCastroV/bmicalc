@@ -24,4 +24,10 @@ public class BMICalcAdapter implements IMCHospital {
 		boolean obesity = calculadora.abdominalObesity(circunferencia, genero);
 		return obesity;
 	}
+
+	@Override
+	public String mensaje(double altura, double peso, double imc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
