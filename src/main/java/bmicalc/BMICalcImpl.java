@@ -34,6 +34,7 @@ public class BMICalcImpl implements BMICalc {
 		this.height = height;
 		this.mass = mass;
 		this.bmi = bmi;
+		notifyObservers();
 		
 		return bmi;
 	}
