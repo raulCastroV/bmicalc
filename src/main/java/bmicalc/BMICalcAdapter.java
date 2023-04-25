@@ -1,5 +1,6 @@
 package bmicalc;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class BMICalcAdapter implements IMCHospital {
@@ -11,13 +12,16 @@ public class BMICalcAdapter implements IMCHospital {
 
 	@Override
 	public Map<Double, String> imc(double altura, double peso) {
-		
-		return null;
+		Map<Double, String> map = new HashMap<>(); 
+		Double bmi = calculadora.bmi(altura, peso);
+		String category = calculadora.category(bmi);
+		map.put(bmi, category);
+		return map;
 	}
 
 	@Override
 	public boolean tieneObesidadAbdominal(char genero, double circunferencia) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean obesity = calculadora.abdominalObesity(circunferencia, genero);
+		return obesity;
 	}
 }
