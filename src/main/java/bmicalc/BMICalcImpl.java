@@ -1,11 +1,18 @@
 package bmicalc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BMICalcImpl implements BMICalc {
 	
 	private static BMICalcImpl instance;
+    private double height;
+    private double mass;
+    private double bmi;
+    private List<IMCStats> observers;
 	
 	private BMICalcImpl() {
-		
+        observers = new ArrayList<>();
 	}
 	
 	public static BMICalcImpl getInstance() {
@@ -24,6 +31,9 @@ public class BMICalcImpl implements BMICalc {
 			throw new IllegalArgumentException("Height must be lower than 2.75");
 		
 		double bmi = (mass/(height*height));
+		this.height = height;
+		this.mass = mass;
+		this.bmi = bmi;
 		
 		return bmi;
 	}
@@ -59,5 +69,31 @@ public class BMICalcImpl implements BMICalc {
 		}
 		return false;
 	}
+	
+	public double getHeight() {
+		return this.height;
+	}
+	
+	public double getMass() {
+		return this.mass;
+	}
+	
+	public double getBMI() {
+		return this.bmi;
+	}
+	
+	public void addObserver(IMCStats observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(IMCStats observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers() {
+        for (IMCStats observer : observers) {
+            observer.update();
+        }
+    }
 
 }
