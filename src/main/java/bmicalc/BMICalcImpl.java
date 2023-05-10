@@ -10,9 +10,8 @@ public class BMICalcImpl implements MetabolicMetrics, CardiovascularMetrics {
 		if (height>2.75)
 			throw new IllegalArgumentException("Height must be lower than 2.75");
 		
-		double bmi = (mass/(height*height));
 		
-		return bmi;
+		return (mass/(height*height));
 	}
 
 	public ObesityCategory getObesityCategory(double bmi) {
