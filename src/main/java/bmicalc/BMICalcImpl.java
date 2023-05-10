@@ -36,12 +36,7 @@ public class BMICalcImpl implements MetabolicMetrics, CardiovascularMetrics {
 		if (waistCircumference>325)
 			throw new IllegalArgumentException("Waist circumference must be lower than 325 centimeters");
 		
-		if (waistCircumference >= 90 && gender.equals(Gender.MALE)) {
-			return true;
-		} else if (waistCircumference >= 80 && gender.equals(Gender.FEMALE)) {
-			return true;
-		}
-		return false;
+		return (waistCircumference >= 90 && gender.equals(Gender.MALE)) || (waistCircumference >= 80 && gender.equals(Gender.FEMALE));
 	}
 
 }
