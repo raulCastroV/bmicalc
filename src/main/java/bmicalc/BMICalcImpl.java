@@ -1,8 +1,8 @@
 package bmicalc;
 
-public class BMICalcImpl implements BMICalc {
+public class BMICalcImpl implements MetabolicMetrics, CardiovascularMetrics {
 
-	public double bmi(double mass, double height) {
+	public double calculateBodyMassIndex(double mass, double height) {
 		if (mass<=0 || height<=0)
 			throw new IllegalArgumentException("Mass and height must be higher than 0");
 		if (mass>640)
@@ -15,33 +15,30 @@ public class BMICalcImpl implements BMICalc {
 		return bmi;
 	}
 
-	public String category(double bmi) {
+	public ObesityCategory getObesityCategory(double bmi) {
 		if (bmi<=0)
 			throw new IllegalArgumentException("BMI must be higher than 0");
 		
 		if (bmi < 18.5) {
-			return "Underweight";
+			return ObesityCategory.UNDERWEIGHT;
 		} else if (bmi < 25) {
-			return "Normal";
+			return ObesityCategory.NORMAL;
 		} else if (bmi < 30) {
-			return "Overweight";
+			return ObesityCategory.OVERWEIGHT;
 		} else {
-			return "Obese";
+			return ObesityCategory.OBESE;
 		}
 	}
 
-	public boolean abdominalObesity(double waistCircumference, char gender) {
-		System.out.println(Character.toString(gender).toUpperCase().equals("M"));
+	public boolean abdominalObesity(double waistCircumference, Gender gender) {
 		if (waistCircumference<40)
 			throw new IllegalArgumentException("Waist circumference must be higher than 40 centimeters");
 		if (waistCircumference>325)
 			throw new IllegalArgumentException("Waist circumference must be lower than 325 centimeters");
-		if (!Character.toString(gender).toUpperCase().equals("M") && !Character.toString(gender).toUpperCase().equals("F"))
-			throw new IllegalArgumentException("Gender must be M(male) or F(female)");
 		
-		if (waistCircumference >= 90 && Character.toString(gender).toUpperCase().equals("M")) {
+		if (waistCircumference >= 90 && gender.equals(Gender.MALE)) {
 			return true;
-		} else if (waistCircumference >= 80 && Character.toString(gender).toUpperCase().equals("F")) {
+		} else if (waistCircumference >= 80 && gender.equals(Gender.FEMALE)) {
 			return true;
 		}
 		return false;

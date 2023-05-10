@@ -29,7 +29,7 @@ public class StepDefinitions {
 	@When("I introduce a mass value of {double} and a height value of {double}")
 	public void i_introduce_a_mass_value_of_and_a_height_value_of(Double double1, Double double2) {
 	    try {
-	    	result = calculator.bmi(double1, double2);
+	    	result = calculator.calculateBodyMassIndex(double1, double2);
 	    } catch (Exception e) {
 	    	exception = true;
 	    }
