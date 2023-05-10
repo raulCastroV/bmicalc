@@ -15,18 +15,18 @@ public class BMICalcImpl  {
 		return bmi;
 	}
 
-	public ObesityCategory category(double bmi) {
+	public ObesityCategory getObesityCategory(double bmi) {
 		if (bmi<=0)
 			throw new IllegalArgumentException("BMI must be higher than 0");
 		
 		if (bmi < 18.5) {
-			return "Underweight";
+			return ObesityCategory.UNDERWEIGHT;
 		} else if (bmi < 25) {
-			return "Normal";
+			return ObesityCategory.NORMAL;
 		} else if (bmi < 30) {
-			return "Overweight";
+			return ObesityCategory.OVERWEIGHT;
 		} else {
-			return "Obese";
+			return ObesityCategory.OBESE;
 		}
 	}
 
