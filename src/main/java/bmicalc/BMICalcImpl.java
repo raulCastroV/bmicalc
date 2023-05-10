@@ -1,8 +1,8 @@
 package bmicalc;
 
-public class BMICalcImpl  {
+public class BMICalcImpl implements MetabolicMetrics, CardiovascularMetrics {
 
-	public double bmi(double mass, double height) {
+	public double calculateBodyMassIndex(double mass, double height) {
 		if (mass<=0 || height<=0)
 			throw new IllegalArgumentException("Mass and height must be higher than 0");
 		if (mass>640)
