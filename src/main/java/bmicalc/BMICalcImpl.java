@@ -1,6 +1,6 @@
 package bmicalc;
 
-public class BMICalcImpl implements BMICalc {
+public class BMICalcImpl  {
 
 	public double bmi(double mass, double height) {
 		if (mass<=0 || height<=0)
@@ -30,18 +30,15 @@ public class BMICalcImpl implements BMICalc {
 		}
 	}
 
-	public boolean abdominalObesity(double waistCircumference, char gender) {
-		System.out.println(Character.toString(gender).toUpperCase().equals("M"));
+	public boolean abdominalObesity(double waistCircumference, Gender gender) {
 		if (waistCircumference<40)
 			throw new IllegalArgumentException("Waist circumference must be higher than 40 centimeters");
 		if (waistCircumference>325)
 			throw new IllegalArgumentException("Waist circumference must be lower than 325 centimeters");
-		if (!Character.toString(gender).toUpperCase().equals("M") && !Character.toString(gender).toUpperCase().equals("F"))
-			throw new IllegalArgumentException("Gender must be M(male) or F(female)");
 		
-		if (waistCircumference >= 90 && Character.toString(gender).toUpperCase().equals("M")) {
+		if (waistCircumference >= 90 && gender.equals(Gender.MALE)) {
 			return true;
-		} else if (waistCircumference >= 80 && Character.toString(gender).toUpperCase().equals("F")) {
+		} else if (waistCircumference >= 80 && gender.equals(Gender.FEMALE)) {
 			return true;
 		}
 		return false;
