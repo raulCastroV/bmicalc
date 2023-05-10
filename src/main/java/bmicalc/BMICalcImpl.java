@@ -15,7 +15,7 @@ public class BMICalcImpl  {
 		return bmi;
 	}
 
-	public String category(double bmi) {
+	public ObesityCategory category(double bmi) {
 		if (bmi<=0)
 			throw new IllegalArgumentException("BMI must be higher than 0");
 		
